@@ -4,7 +4,7 @@
 
 html, body {
     height: 100%;
-    margin: 20px;
+    margin: 32px;
     width: 100%;
 }
 
@@ -39,37 +39,22 @@ html, body {
     color: #C4B5FD;
 }
 
-.header #about:active {
-  color: #7C3AED;
-}
-
-.header #home:active {
-  color: #7C3AED;
-}
-
-.header #projects:active {
-  color: #7C3AED;
-}
-
 .header #get-in-touch:hover {
     color: #C4B5FD;
-}
-
-.header #get-in-touch:active {
-  color: #7C3AED;
 }
 
 .header #linkedin:hover {
     color: #C4B5FD;
 }
 
-.header #linkedin:active {
-  color: #7C3AED;
+.header a.active {
+
+  font-weight: 600;
+  border-bottom: 2px solid #7C3AED;
 }
 
-
 .layout {
-    margin-top: 70px;
+    
     display: grid;
     grid-template-columns: 50% 50%;
     height: calc(100dvh - 70px);
@@ -99,7 +84,7 @@ html, body {
 
 #title { 
     grid-area: title; 
-    font-size: 72px;
+    font-size: 100px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -109,6 +94,7 @@ html, body {
 }
 
 #description { 
+    margin-top: 20px;
     grid-area: description; 
     font-size: 18px;
     color: #444444;
@@ -124,20 +110,13 @@ html, body {
     
 }
 
-.skills {
-    color: #444444;
-    background-color: #F0F0F0;
-    border-radius: 15px; 
-    padding: 12px  12px;
-    font-weight: 200;
-    border-color: black;
-    text-decoration: none;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+#skills {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 32px;
 }
 
-.skills:hover {
+#skills:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(181, 127, 228, 0.35);
 }
 
 .contacts #contact:hover {
@@ -179,6 +158,12 @@ html, body {
     transition: border-color 0.3s;
 }
 
+.photo img:hover {
+    color: #C4B5FD;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(181, 127, 228, 0.35);
+}
+
 body.aboutmepage {
     display: grid;
     grid-template-rows: auto auto 600px auto;
@@ -186,10 +171,10 @@ body.aboutmepage {
     grid-template-areas:
         "title"
         "description"
-        "."
+        "stack"
         "stack";
     height: 100vh;
-    margin: 60px;
+    margin: 32px;
     gap: 32px;
 
 } 
@@ -225,11 +210,19 @@ body.aboutmepage {
     gap: 2em;
     font-size: 20px;
     font-weight: bold;
-    color: #7C3AED;
+    color: #444444;
+    text-shadow: 2px 2px 4px rgba(181, 127, 228, 0.1);
 }
 
 #tech-section {
     display: flex;
     align-items: center;
     grid-area: stack;
+}
+
+#photo-code {
+    height: 500px;
+    width: 800px;
+    border-radius: 70px;
+    object-fit: cover;
 }
