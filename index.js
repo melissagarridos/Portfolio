@@ -1,49 +1,50 @@
-document.getElementById("about").onclick = () => {
-    window.location.href = "about.html";
-};
+const form = document.getElementById('contactForm');
 
-const currentPage = window.location.pathname.split("/").pop() || "index.html";
+if (form) {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-const links = document.querySelectorAll(".header a");
-const currentPage = window.location.pathname.split("/").pop();
+        const name = this.name.value;
+        const email = this.email.value;
+        const phone = this.phone.value;
+        const message = this.message.value;
 
-links.forEach(link => {
-    const linkPage = link.getAttribute("href");
-
-    if (linkPage === currentPage) {
-        link.classList.add("active");
-    }
-});
-
-// Form submit (hook into your backend / formspree / emailjs here)
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const required = this.querySelectorAll('[required]');
-    let valid = true;
-
-    required.forEach(el => {
-        if (!el.value.trim()) {
-            el.focus();
-            el.style.borderColor = '#ff5757';
-            valid = false;
-        } else {
-            el.style.borderColor = '';
+        // Validación básica
+        if (!name || !email) {
+            alert("Please fill required fields");
+            return;
         }
-    });
 
-    if (!valid) return;
+        // Contenido del archivo TXT
+        const content = 
+`----- NEW CONTACT -----
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}
+Date: ${new Date().toLocaleString()}
 
-    // ── Replace this block with your actual submission logic ──
-    // e.g. fetch('/api/contact', { method:'POST', body: new FormData(this) })
-    // ──────────────────────────────────────────────────────────
-    const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
+`;
 
-    setTimeout(() => {
+        // Crear archivo
+        const blob = new Blob([content], { type: "text/plain;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+
+        // Descargar archivo
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `contact_${Date.now()}.txt`;
+        a.click();
+
+        URL.revokeObjectURL(url);
+
+        // UI feedback
+        const btn = this.querySelector('button[type="submit"]');
+        btn.textContent = "Saved ✓";
+        btn.disabled = true;
+
         document.getElementById('successMsg').style.display = 'block';
-        btn.style.display = 'none';
-        this.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
-    }, 800);
-});
+
+        this.reset();
+    });
+}

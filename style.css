@@ -25,6 +25,7 @@ html, body {
     align-items: center;
     gap: 100px;
     height: 70px;
+    font-weight: 500;
     
 }
 
@@ -33,6 +34,7 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     font-size: 18px;
+    
 }
 
 .header #about:hover {
