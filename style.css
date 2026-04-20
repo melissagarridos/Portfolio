@@ -1,6 +1,3 @@
-* {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 :root {
   --primary: #7C3AED;
   --primary-light: #C4B5FD;
@@ -9,244 +6,196 @@
   --bg: #FFFFFF;
   --radius: 8px;
   --shadow: 0 8px 20px rgba(181, 127, 228, 0.15);
-}
-html, body {
-    height: 100%;
-    width: 100%;
+  --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  --hovershadow: 20px 50px 50px rgba(181, 127, 228, 0.15);
 }
 
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 20px;
+  padding-top: 70px;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ─── HEADER ─────────────────────────────────────────── */
 .header {
-    top: 0;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-    height: 70px;
-    font-weight: 500;
-    
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  background: var(--bg);
+  z-index: 100;
 }
 
-#home, #projects, #about, #linkedin, #get-in-touch, #pets {
-    color: #444444;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-decoration: none;
-    font-size: 18px;
-    
+.headerbtn {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 18px;
+  padding-bottom: 4px;
 }
 
-.header #about:hover {
-    color: #C4B5FD;
+.headerbtn:hover {
+  color: var(--primary-light);
 }
 
-.header #home:hover {
-    color: #C4B5FD;
-}
-
-.header #projects:hover {
-    color: #C4B5FD;
-}
-
-.header #get-in-touch:hover {
-    color: #C4B5FD;
-}
-
-.header #linkedin:hover {
-    color: #C4B5FD;
-}
-
-.header #pets:hover {
-    color: #C4B5FD;
-}
-
-.header a.active {
+.header .active {
   font-weight: 600;
-  border-bottom: 2px solid #7C3AED;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 2px solid var(--primary);
 }
 
+/* ─── HOME LAYOUT ─────────────────────────────────────── */
 .layout {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    height: calc(100dvh - 70px);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: calc(100dvh - 70px);
 }
-
 
 .personal-information {
-    display: grid;
-    grid-template-rows: 1fr 0.3fr 1.5fr 0.5fr 0.3fr 0.5fr 1fr;
-        grid-template-areas:
-        "empty"
-        "presentation"
-        "title"
-        "description"
-        "skill"
-        "."
-        ".";
-
-    height: 100%;
-    margin-left: 50px;
+  display: grid;
+  grid-template-rows: 1fr 0.3fr 1.5fr 0.5fr 0.3fr 0.5fr 1fr;
+  grid-template-areas:
+    "empty"
+    "presentation"
+    "title"
+    "description"
+    "skill"
+    "."
+    ".";
+  height: 100%;
+  margin-left: 50px;
 }
 
-#presentation { 
-    grid-area: presentation;
-    font-size: 18px;
+.presentation {
+  grid-area: presentation;
+  font-size: 18px;
 }
 
-#title { 
-    grid-area: title; 
-    font-size: 100px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.main-title {
+  grid-area: title;
+  font-size: 100px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-#contacttitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    font-size: 100px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.highlight {
+  color: var(--primary);
 }
 
-#highlight { 
-    color: #7C3AED;
-}
-
-#description { 
-    margin-top: 20px;
-    grid-area: description; 
-    font-size: 18px;
-    color: #444444;
-
+.index-description {
+  margin-top: 20px;
+  grid-area: description;
+  font-size: 18px;
+  color: #444444;
 }
 
 .skill-box {
-    grid-area: skill;
-    display: flex;
-    gap: 16px; 
-    margin-top: 10px;
-    font-size: 15px;
-    
+  grid-area: skill;
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 15px;
 }
 
-#skills {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    font-size: 32px;
+.fa-brands {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 40px;
 }
 
 #skills:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-.contacts #contact:hover {
-    color: #C4B5FD;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(181, 127, 228, 0.35);
-    color: aliceblue;
-}
-
-.contacts #linkedin:hover {
-    color: #C4B5FD;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(181, 127, 228, 0.35);
-    color: aliceblue;
-}
-
-.contacts #github:hover {
-    color: #C4B5FD;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(181, 127, 228, 0.35);
-    color: aliceblue;
-}
-
+/* ─── PHOTO ───────────────────────────────────────────── */
 .photo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 1rem;
-    padding: 30px;
-    border: 2px solid #e8d5ff;
-    transition: border-color 0.3s;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  padding: 30px;
+  border: 2px solid #e8d5ff;
+  transition: border-color 0.3s;
 }
 
 .photo img:hover {
-    color: #C4B5FD;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(181, 127, 228, 0.35);
+  color: #C4B5FD;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(181, 127, 228, 0.35);
 }
 
-body.aboutmepage {
-    display: grid;
-    grid-template-rows: auto auto 600px auto;
-
-    grid-template-areas:
-        "title"
-        "description"
-        "stack"
-        "stack";
-    height: 100vh;
-    gap: 32px;
-
-} 
-
-.centertitle {
-    grid-area: title;
-    display: flex;
+/* ─── TITLES ──────────────────────────────────────────── */
+.title {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: bold;
+  text-shadow: var(--text-shadow);
+  text-align: flex-start;
 }
 
-#centertitle  {
-    margin-top: 70px;
-    display: flex;
-    align-items: flex-end;
-    font-size: 72px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.center-title {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: bold;
+  text-shadow: var(--text-shadow);
+  text-align: center;
 }
 
-#abouttxt {
-    grid-area: description;
-    margin-right: 90px;
+#contacttitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-size: 100px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.techtools {
-    display: flex;
-    gap: 16px; 
-    margin-top: 50px;
+/* ─── ABOUT ───────────────────────────────────────────── */
+#descriptiontxt {
+  font-size: 0.9rem;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 #tech-title {
-    display: flex;
-    align-items: center;
-    gap: 2em;
-    font-size: 20px;
-    font-weight: bold;
-    color: #444444;
-    text-shadow: 2px 2px 4px rgba(181, 127, 228, 0.1);
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-#tech-section {
-    display: flex;
-    align-items: center;
-    grid-area: stack;
+#tools {
+  font-size: 0.9rem;
+  margin-top: 2%;
 }
 
 #photo-code {
-    height: 500px;
-    width: 800px;
-    border-radius: 70px;
-    object-fit: cover;
+  border-radius: 70px;
+  margin-top: 2%;
+  height: 700px;
+  width: 100%;
+  object-fit: cover;
 }
 
+/* ─── CONTACT ─────────────────────────────────────────── */
 .field {
   display: flex;
   flex-direction: column;
@@ -271,14 +220,14 @@ body.aboutmepage {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
-.success-msg {
-    display: none;
-    background: rgba(184,255,87,0.07);
-    padding: 1.2rem 1.5rem;
 
-    font-size: 0.85rem;
-    text-align: center;
-    line-height: 1.6;
+.success-msg {
+  display: none;
+  background: rgba(184, 255, 87, 0.07);
+  padding: 1.2rem 1.5rem;
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.6;
 }
 
 .contact-form {
@@ -311,86 +260,305 @@ textarea:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px; /* space for fixed header */
+  padding-top: 50px;
 }
 
+/* ─── PETS ────────────────────────────────────────────── */
 .petslayout {
-    display: grid;
-    grid-template-rows: auto auto;
-
-    grid-template-areas:
-        "title"
-        "cards";
-
-    height: 100vh;
-  
-}
-
-.centertitle {
-    grid-area: title;
-    align-items: flex-start;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "title"
+    "cards";
+  height: 100vh;
 }
 
 .cardcontainer {
-    grid-area: cards;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    justify-items: center; /* centra las cards */
+  grid-area: cards;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  justify-items: center;
 }
+
 .petcard {
-    width: 300px;
-    height: 400px;
-    perspective: 1000px; /* clave para 3D */
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
 }
 
 .cardinner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-/* Aquí ocurre el flip */
 .petcard:hover .cardinner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.cardfront, .cardback {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    backface-visibility: hidden; /* oculta el lado trasero */
-}
-
-
-/* Reverso */
+.cardfront,
 .cardback {
-    background-color: #e8d5ff;
-    transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  backface-visibility: hidden;
+}
+
+.cardback {
+  background-color: #e8d5ff;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .cardfront {
-    background-color: #C4B5FD;
-    border-radius: 25px;
-    overflow: hidden; /* 🔑 clave: recorta la imagen dentro del borde */
+  background-color: #C4B5FD;
+  border-radius: 25px;
+  overflow: hidden;
 }
 
 .petphoto {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .petphoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE — MEDIA QUERIES
+   Breakpoints:
+     - Tablet:  max-width 1024px
+     - Mobile:  max-width 768px
+     - Small:   max-width 480px
+   ══════════════════════════════════════════════════════ */
+
+/* ─── TABLET (≤ 1024px) ───────────────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Header: reduce gap */
+  .header {
+    gap: 24px;
+  }
+
+  .headerbtn {
+    font-size: 15px;
+  }
+
+  /* Home: stack columns */
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+
+  .personal-information {
+    margin-left: 20px;
+    margin-right: 20px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "presentation"
+      "title"
+      "description"
+      "skill";
+    gap: 12px;
+  }
+
+  .main-title {
+    font-size: clamp(3rem, 10vw, 80px);
+  }
+
+  .photo img {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Pets: 2 columns */
+  .cardcontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .petslayout {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  /* About: image height */
+  #photo-code {
+    height: 450px;
+    border-radius: 40px;
+  }
+}
+
+/* ─── MOBILE (≤ 768px) ────────────────────────────────── */
+@media (max-width: 768px) {
+
+  body {
+    margin: 10px;
+    padding-top: 120px; /* more room for wrapped header */
+  }
+
+  /* Header: wrap into 2 rows, smaller font */
+  .header {
+    height: auto;
+    padding: 0.6rem 1rem;
+    gap: 12px 20px;
+  }
+
+  .headerbtn {
+    font-size: 13px;
+  }
+
+  /* Home */
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 20px;
+  }
+
+  .personal-information {
+    margin-left: 10px;
+    margin-right: 10px;
+    order: 2; /* text below photo */
+  }
+
+  .main-title {
+    font-size: clamp(2.5rem, 12vw, 60px);
+    line-height: 1.1;
+  }
+
+  .presentation {
+    font-size: 15px;
+  }
+
+  .index-description {
+    font-size: 15px;
+  }
+
+  .fa-brands {
+    font-size: 32px;
+  }
+
+  /* Photo */
+  .photo {
+    order: 1;
+    padding-top: 20px;
+  }
+
+  .photo img {
+    width: 200px;
+    height: 200px;
+    padding: 16px;
+  }
+
+  /* Titles */
+  .title {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    margin-bottom: 16px;
+  }
+
+  .center-title {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    margin-bottom: 16px;
+  }
+
+  /* Pets: 2 columns, smaller cards */
+  .cardcontainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .petcard {
     width: 100%;
-    height: 100%;
-    object-fit: cover;   /* llena sin deformarse */
-    object-position: center; /* centra la imagen */
-    display: block;
+    max-width: 260px;
+    height: 320px;
+  }
+
+  .petslayout {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  /* Contact */
+  #form {
+    padding: 20px 10px;
+    align-items: flex-start;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+  /* About */
+  #photo-code {
+    height: 280px;
+    border-radius: 24px;
+  }
+}
+
+/* ─── SMALL PHONES (≤ 480px) ──────────────────────────── */
+@media (max-width: 480px) {
+
+  body {
+    padding-top: 140px;
+    margin: 8px;
+  }
+
+  /* Header: smaller and compact */
+  .header {
+    gap: 8px 14px;
+  }
+
+  .headerbtn {
+    font-size: 12px;
+  }
+
+  /* Home */
+  .main-title {
+    font-size: clamp(2rem, 13vw, 48px);
+  }
+
+  .presentation {
+    font-size: 14px;
+  }
+
+  .index-description {
+    font-size: 14px;
+  }
+
+  .photo img {
+    width: 160px;
+    height: 160px;
+    padding: 12px;
+  }
+
+  /* Pets: 1 column on very small screens */
+  .cardcontainer {
+    grid-template-columns: 1fr;
+  }
+
+  .petcard {
+    width: 100%;
+    max-width: 320px;
+    height: 360px;
+  }
+
+  /* About */
+  #photo-code {
+    height: 200px;
+    border-radius: 16px;
+  }
 }
